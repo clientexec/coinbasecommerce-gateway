@@ -98,5 +98,6 @@ class PluginCoinbasecommerce extends GatewayPlugin
 
     public function credit($params)
     {
+        return $this->user->lang("This payment gateway does not support refunds.");
     }
 }
