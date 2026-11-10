@@ -8,6 +8,11 @@ class PluginCoinbasecommerceCallback extends PluginCallback
 {
     public function processCallback()
     {
+        // Execute PluginCallback::processCallback() first
+        if (!parent::processCallback()) {
+            return;
+        }
+
         // Format payload data
         $rawBody = file_get_contents("php://input");
         $decodedBody = json_decode($rawBody, true);
